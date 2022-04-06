@@ -8,6 +8,10 @@ def rss_downloader(timeLastRun):
     # print(piFeed)
     modifiedPiFeed = []
 
+    print('---------------------------------------------')
+    today = datetime.today()
+    print("Today's date:", today)
+
     ####for loop through rss feed to get time and summary of info from website
     for i in range(len(piFeed.entries)):
         # print(piFeed.entries[i].published, ' : ', piFeed.entries[i].title)
@@ -29,14 +33,14 @@ def rss_downloader(timeLastRun):
     modifiedPiFeed = [x for x in modifiedPiFeed if 'Zero 2 W' in x[2]]
 
 
-    # print(modifiedPiFeed)
+    print(modifiedPiFeed)
     return(modifiedPiFeed)
     # piFeedDecoded = json.loads(piFeed)
     # print(piFeedDecoded)
 
 if __name__ == "__main__":
     ####create lastRunTime with date of 2 days ago
-    lastRun = datetime.now() - timedelta(days = 10)
+    lastRun = datetime.utcnow() - timedelta(hours = 2)
     # print(lastRun)
 
     rss_downloader(lastRun)

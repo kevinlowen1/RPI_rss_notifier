@@ -4,7 +4,7 @@ from notifier import notify
 
 if __name__ == "__main__":
    ####create timeToCheckAgainst with date of 2 days ago
-   timeToCheckAgainst = datetime.now() - timedelta(hours = 2)
+   timeToCheckAgainst = datetime.utcnow() - timedelta(hours = 2)
 
    ####get records more recent than the time checked against
    info = rss_downloader(timeToCheckAgainst)
