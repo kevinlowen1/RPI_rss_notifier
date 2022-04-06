@@ -10,7 +10,9 @@ def rss_downloader(timeLastRun):
 
     print('---------------------------------------------')
     today = datetime.today()
-    print("Today's date:", today)
+    utcnow = datetime.utcnow() 
+    print("current datetime:       ", today)
+    print("current datetime (utc): ", utcnow)
 
     ####for loop through rss feed to get time and summary of info from website
     for i in range(len(piFeed.entries)):
